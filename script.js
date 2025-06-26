@@ -25,22 +25,9 @@ const PageTransition = {
     },
 
     handleLanguageSwitch(toggle) {
-        // Animate toggle button
-        toggle.style.transform = 'scale(0.95)';
-        toggle.style.filter = 'brightness(0.9)';
-        
-        setTimeout(() => {
-            toggle.style.transform = 'scale(1)';
-            toggle.style.filter = 'brightness(1)';
-        }, 150);
-
-        // Get target page
+        // Get target page and navigate immediately
         const targetPage = this.getTargetPage();
-        
-        // Start page exit animation
-        this.exitAnimation(() => {
-            window.location.href = targetPage;
-        });
+        window.location.href = targetPage;
     },
 
     getTargetPage() {
@@ -69,35 +56,7 @@ const PageTransition = {
         }
     },
 
-    exitAnimation(callback) {
-        // Create overlay for smooth transition
-        const overlay = document.createElement('div');
-        overlay.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 9999;
-            opacity: 0;
-            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            pointer-events: none;
-        `;
-        
-        document.body.appendChild(overlay);
-        
-        // Animate page exit
-        requestAnimationFrame(() => {
-            overlay.style.opacity = '1';
-            this.body.style.opacity = '0.3';
-            this.body.style.transform = 'translateY(-15px) scale(0.98)';
-            this.body.style.filter = 'blur(2px)';
-        });
-        
-        setTimeout(callback, 300);
-    }
+    // exitAnimation method removed - no longer needed for instant language switching
 };
 
 // Smooth scrolling for navigation links
@@ -149,28 +108,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Force navbar to be fixed - emergency fix
-function forceNavbarFixed() {
-    const navbars = document.querySelectorAll('.navbar, nav, header');
-    navbars.forEach(navbar => {
-        if (navbar.classList.contains('navbar') || navbar.tagName.toLowerCase() === 'nav') {
-            navbar.style.position = 'fixed';
-            navbar.style.top = '0';
-            navbar.style.left = '0';
-            navbar.style.right = '0';
-            navbar.style.width = '100%';
-            navbar.style.zIndex = '99999';
-            navbar.style.transform = 'none';
-            
-            // 强制覆盖可能的CSS重置
-            navbar.style.setProperty('position', 'fixed', 'important');
-            navbar.style.setProperty('top', '0', 'important');
-            navbar.style.setProperty('z-index', '99999', 'important');
-            
-            console.log('导航栏已强制设置为固定定位:', navbar);
-        }
-    });
-}
+// Navbar fixed positioning code has been removed
 
 // Initialize animations and page functionality
 document.addEventListener('DOMContentLoaded', () => {
@@ -178,10 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     PageTransition.init();
     
     // 强制设置导航栏为固定定位
-    forceNavbarFixed();
-    
-    // 每秒检查一次导航栏定位，确保它保持固定
-    setInterval(forceNavbarFixed, 1000);
+    // Fixed navbar positioning code has been removed
     
     // Add staggered animation to elements
     const animateElements = document.querySelectorAll('.card, .project-card, .timeline-item');
@@ -317,12 +252,10 @@ function switchLanguage(targetUrl) {
     const toggle = document.querySelector('.lang-toggle');
     if (toggle) {
         PageTransition.handleLanguageSwitch(toggle);
-    }
-    
-    // Smooth transition to target language
-    setTimeout(() => {
+    } else {
+        // Direct navigation if no toggle found
         window.location.href = targetUrl;
-    }, 300);
+    }
 }
 
 // Mobile menu toggle (for responsive design)
