@@ -2445,6 +2445,11 @@ input[type="checkbox"] {
         padding: 0 20px;
     }
 
+    .nav-logo img {
+        height: 50px;
+        width: 50px;
+    }
+
     .nav-toggle {
         display: flex;
     }
@@ -3142,6 +3147,11 @@ body {
 
 /* Small phones */
 @media (max-width: 480px) {
+    .nav-logo img {
+        height: 40px;
+        width: 40px;
+    }
+
     .hero-title {
         font-size: 2rem;
         line-height: 1.25;
