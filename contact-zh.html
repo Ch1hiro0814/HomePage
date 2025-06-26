@@ -88,8 +88,12 @@
                 <div class="contact-form-section">
                     <div class="contact-form">
                         <h3>发送消息</h3>
-                        <form id="contactForm">
-                            <!-- Using mailto approach for reliable email sending -->
+                        <form id="contactForm" action="https://formsubmit.co/chihirowzk@gmail.com" method="POST">
+                            <!-- FormSubmit Configuration -->
+                            <input type="hidden" name="_subject" value="作品集联系表单提交">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_autoresponse" value="感谢您的联系！我会在24-48小时内回复您。">
                             
                             <div class="form-group">
                                 <label for="name">姓名</label>

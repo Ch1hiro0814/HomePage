@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         emailjs.init("YOUR_PUBLIC_KEY"); // You need to replace this with your actual EmailJS public key
     }
 
-    // Form submission handling with mailto (most reliable method)
+    // Form submission handling with FormSubmit AJAX
     const contactForm = document.querySelector('.contact-form form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -204,57 +204,80 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // Show loading state
-            submitBtn.innerHTML = '<span style="opacity: 0.7;">Opening Email Client...</span>';
+            submitBtn.innerHTML = '<span style="opacity: 0.7;">Sending...</span>';
             submitBtn.disabled = true;
             submitBtn.style.transform = 'scale(0.95)';
             
-            // Prepare email content
-            const emailSubject = `Contact Form: ${subject}`;
-            const emailBody = `Name: ${name}
+            // Prepare form data for FormSubmit
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('subject', subject);
+            formData.append('message', message);
+            formData.append('newsletter', newsletter ? 'Yes' : 'No');
+            
+            // Add FormSubmit configuration
+            formData.append('_subject', this.querySelector('input[name="_subject"]').value);
+            formData.append('_captcha', 'false');
+            formData.append('_template', 'table');
+            formData.append('_autoresponse', this.querySelector('input[name="_autoresponse"]').value);
+            
+            // Submit to FormSubmit using AJAX
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success
+                    submitBtn.innerHTML = '✓ Message Sent Successfully!';
+                    submitBtn.style.background = '#34c759';
+                    submitBtn.style.transform = 'scale(1)';
+                    
+                    // Redirect to thank you page after showing success
+                    setTimeout(() => {
+                        const isChinesePage = window.location.pathname.includes('-zh');
+                        const thankYouPage = isChinesePage ? 'thank-you-zh.html' : 'thank-you.html';
+                        window.location.href = thankYouPage;
+                    }, 2000);
+                } else {
+                    throw new Error('FormSubmit response not ok');
+                }
+            })
+            .catch(error => {
+                console.error('FormSubmit error:', error);
+                
+                // Fallback to mailto
+                submitBtn.innerHTML = 'Using Email Client...';
+                submitBtn.style.background = '#ff9500';
+                
+                const emailSubject = `Contact Form: ${subject}`;
+                const emailBody = `Name: ${name}
 Email: ${email}
 Subject: ${subject}
-Newsletter Subscription: ${newsletter ? 'Yes' : 'No'}
+Newsletter: ${newsletter ? 'Yes' : 'No'}
 
 Message:
 ${message}
 
 ---
 Sent from Portfolio Contact Form`;
-            
-            // Create mailto link
-            const mailtoLink = `mailto:chihirowzk@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-            
-            try {
-                // Open email client
-                window.location.href = mailtoLink;
                 
-                // Show success state
+                const mailtoLink = `mailto:chihirowzk@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                
                 setTimeout(() => {
-                    submitBtn.innerHTML = '✓ Email Client Opened!';
-                    submitBtn.style.background = '#34c759';
-                    submitBtn.style.transform = 'scale(1)';
+                    window.location.href = mailtoLink;
                     
-                    // Redirect to thank you page after showing success
                     setTimeout(() => {
-                        // Determine which thank you page to redirect to
                         const isChinesePage = window.location.pathname.includes('-zh');
                         const thankYouPage = isChinesePage ? 'thank-you-zh.html' : 'thank-you.html';
                         window.location.href = thankYouPage;
                     }, 2000);
                 }, 1000);
-                
-            } catch (error) {
-                console.error('Error opening email client:', error);
-                submitBtn.innerHTML = 'Error - Please Email Directly';
-                submitBtn.style.background = '#ff3b30';
-                
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.style.background = '';
-                    submitBtn.disabled = false;
-                    submitBtn.style.transform = '';
-                }, 3000);
-            }
+            });
         });
     }
 });
