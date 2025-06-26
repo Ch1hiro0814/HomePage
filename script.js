@@ -149,10 +149,39 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+// Force navbar to be fixed - emergency fix
+function forceNavbarFixed() {
+    const navbars = document.querySelectorAll('.navbar, nav, header');
+    navbars.forEach(navbar => {
+        if (navbar.classList.contains('navbar') || navbar.tagName.toLowerCase() === 'nav') {
+            navbar.style.position = 'fixed';
+            navbar.style.top = '0';
+            navbar.style.left = '0';
+            navbar.style.right = '0';
+            navbar.style.width = '100%';
+            navbar.style.zIndex = '99999';
+            navbar.style.transform = 'none';
+            
+            // 强制覆盖可能的CSS重置
+            navbar.style.setProperty('position', 'fixed', 'important');
+            navbar.style.setProperty('top', '0', 'important');
+            navbar.style.setProperty('z-index', '99999', 'important');
+            
+            console.log('导航栏已强制设置为固定定位:', navbar);
+        }
+    });
+}
+
 // Initialize animations and page functionality
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize page transitions
     PageTransition.init();
+    
+    // 强制设置导航栏为固定定位
+    forceNavbarFixed();
+    
+    // 每秒检查一次导航栏定位，确保它保持固定
+    setInterval(forceNavbarFixed, 1000);
     
     // Add staggered animation to elements
     const animateElements = document.querySelectorAll('.card, .project-card, .timeline-item');
@@ -300,9 +329,20 @@ function switchLanguage(targetUrl) {
 function toggleMobileMenu() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const navOverlay = document.querySelector('.nav-overlay');
     
     navToggle.classList.toggle('active');
     navMenu.classList.toggle('active');
+    if (navOverlay) {
+        navOverlay.classList.toggle('active');
+    }
+    
+    // Prevent body scrolling when menu is open
+    if (navMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
 }
 
 // Additional mobile menu functionality
@@ -312,10 +352,15 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             const navToggle = document.querySelector('.nav-toggle');
             const navMenu = document.querySelector('.nav-menu');
+            const navOverlay = document.querySelector('.nav-overlay');
             
             if (navToggle && navMenu) {
                 navToggle.classList.remove('active');
                 navMenu.classList.remove('active');
+                if (navOverlay) {
+                    navOverlay.classList.remove('active');
+                }
+                document.body.style.overflow = '';
             }
         });
     });
@@ -324,11 +369,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (e) => {
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
+        const navOverlay = document.querySelector('.nav-overlay');
         const navbar = document.querySelector('.navbar');
         
         if (navbar && !navbar.contains(e.target) && navMenu && navMenu.classList.contains('active')) {
             navToggle.classList.remove('active');
             navMenu.classList.remove('active');
+            if (navOverlay) {
+                navOverlay.classList.remove('active');
+            }
+            document.body.style.overflow = '';
         }
     });
 });
