@@ -300,39 +300,37 @@ function switchLanguage(targetUrl) {
 
 // Mobile menu toggle (for responsive design)
 function toggleMobileMenu() {
+    const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    
+    navToggle.classList.toggle('active');
     navMenu.classList.toggle('active');
 }
 
-// Add mobile menu button (for screens where nav-menu is hidden)
+// Additional mobile menu functionality
 document.addEventListener('DOMContentLoaded', () => {
-    const navbar = document.querySelector('.nav-container');
-    const mobileMenuBtn = document.createElement('button');
-    mobileMenuBtn.innerHTML = '☰';
-    mobileMenuBtn.className = 'mobile-menu-btn';
-    mobileMenuBtn.style.cssText = `
-        display: none;
-        background: none;
-        border: none;
-        font-size: 24px;
-        color: #1d1d1f;
-        cursor: pointer;
-        padding: 5px;
-    `;
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (navToggle && navMenu) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    });
     
-    // Show mobile menu button on small screens
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
-    function handleScreenChange(e) {
-        if (e.matches) {
-            mobileMenuBtn.style.display = 'block';
-        } else {
-            mobileMenuBtn.style.display = 'none';
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const navbar = document.querySelector('.navbar');
+        
+        if (navbar && !navbar.contains(e.target) && navMenu && navMenu.classList.contains('active')) {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
         }
-    }
-    
-    mediaQuery.addListener(handleScreenChange);
-    handleScreenChange(mediaQuery);
-    
-    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-    navbar.appendChild(mobileMenuBtn);
+    });
 });
