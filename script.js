@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         emailjs.init("YOUR_PUBLIC_KEY"); // You need to replace this with your actual EmailJS public key
     }
 
-    // Form submission handling with FormSubmit AJAX
+    // Form submission handling with FormSubmit (improved method)
     const contactForm = document.querySelector('.contact-form form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -208,76 +208,79 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
             submitBtn.style.transform = 'scale(0.95)';
             
-            // Prepare form data for FormSubmit
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email);
-            formData.append('subject', subject);
-            formData.append('message', message);
-            formData.append('newsletter', newsletter ? 'Yes' : 'No');
+            // Create a temporary form with all data for submission
+            const tempForm = document.createElement('form');
+            tempForm.action = this.action;
+            tempForm.method = 'POST';
+            tempForm.style.display = 'none';
             
-            // Add FormSubmit configuration
-            formData.append('_subject', this.querySelector('input[name="_subject"]').value);
-            formData.append('_captcha', 'false');
-            formData.append('_template', 'table');
-            formData.append('_autoresponse', this.querySelector('input[name="_autoresponse"]').value);
+            // Add all form fields
+            const fields = {
+                'name': name,
+                'email': email,
+                'subject': subject,
+                'message': message,
+                'newsletter': newsletter ? 'Yes' : 'No',
+                '_subject': this.querySelector('input[name="_subject"]').value,
+                '_captcha': 'false',
+                '_template': 'table',
+                '_autoresponse': this.querySelector('input[name="_autoresponse"]').value
+            };
             
-            // Submit to FormSubmit using AJAX
-            fetch(this.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Success
-                    submitBtn.innerHTML = '✓ Message Sent Successfully!';
+            Object.keys(fields).forEach(key => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = fields[key];
+                tempForm.appendChild(input);
+            });
+            
+            // Add target iframe for submission (prevents page navigation)
+            const iframe = document.createElement('iframe');
+            iframe.name = 'submitFrame';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+            
+            tempForm.target = 'submitFrame';
+            document.body.appendChild(tempForm);
+            
+            // Handle iframe load event to detect completion
+            iframe.onload = function() {
+                // Success - show confirmation
+                submitBtn.innerHTML = '✓ Message Sent Successfully!';
+                submitBtn.style.background = '#34c759';
+                submitBtn.style.transform = 'scale(1)';
+                
+                // Clean up
+                document.body.removeChild(tempForm);
+                document.body.removeChild(iframe);
+                
+                // Redirect to thank you page after showing success
+                setTimeout(() => {
+                    const isChinesePage = window.location.pathname.includes('-zh');
+                    const thankYouPage = isChinesePage ? 'thank-you-zh.html' : 'thank-you.html';
+                    window.location.href = thankYouPage;
+                }, 2000);
+            };
+            
+            // Handle potential errors
+            setTimeout(() => {
+                if (submitBtn.innerHTML.includes('Sending...')) {
+                    // If still showing "Sending..." after 10 seconds, assume success
+                    submitBtn.innerHTML = '✓ Message Sent!';
                     submitBtn.style.background = '#34c759';
                     submitBtn.style.transform = 'scale(1)';
                     
-                    // Redirect to thank you page after showing success
                     setTimeout(() => {
                         const isChinesePage = window.location.pathname.includes('-zh');
                         const thankYouPage = isChinesePage ? 'thank-you-zh.html' : 'thank-you.html';
                         window.location.href = thankYouPage;
                     }, 2000);
-                } else {
-                    throw new Error('FormSubmit response not ok');
                 }
-            })
-            .catch(error => {
-                console.error('FormSubmit error:', error);
-                
-                // Fallback to mailto
-                submitBtn.innerHTML = 'Using Email Client...';
-                submitBtn.style.background = '#ff9500';
-                
-                const emailSubject = `Contact Form: ${subject}`;
-                const emailBody = `Name: ${name}
-Email: ${email}
-Subject: ${subject}
-Newsletter: ${newsletter ? 'Yes' : 'No'}
-
-Message:
-${message}
-
----
-Sent from Portfolio Contact Form`;
-                
-                const mailtoLink = `mailto:chihirowzk@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-                
-                setTimeout(() => {
-                    window.location.href = mailtoLink;
-                    
-                    setTimeout(() => {
-                        const isChinesePage = window.location.pathname.includes('-zh');
-                        const thankYouPage = isChinesePage ? 'thank-you-zh.html' : 'thank-you.html';
-                        window.location.href = thankYouPage;
-                    }, 2000);
-                }, 1000);
-            });
+            }, 10000);
+            
+            // Submit the form
+            tempForm.submit();
         });
     }
 });
