@@ -1,3 +1,5 @@
+
+
 // Page transition animation
 const PageTransition = {
     init() {
@@ -274,6 +276,32 @@ function toggleMobileMenu() {
     if (navMenu.classList.contains('active')) {
         document.body.style.overflow = 'hidden';
     } else {
+        document.body.style.overflow = '';
+    }
+}
+
+// Mobile resume menu toggle
+function toggleResumeMenu() {
+    const resumeContent = document.querySelector('.resume-dropdown-content');
+    const resumeOverlay = document.querySelector('.resume-overlay');
+    
+    if (resumeContent && resumeOverlay) {
+        resumeContent.classList.toggle('active');
+        resumeOverlay.classList.toggle('active');
+        
+        // Prevent body scroll when resume menu is open
+        document.body.style.overflow = resumeContent.classList.contains('active') ? 'hidden' : '';
+    }
+}
+
+// Close resume menu when clicking overlay
+function closeResumeMenu() {
+    const resumeContent = document.querySelector('.resume-dropdown-content');
+    const resumeOverlay = document.querySelector('.resume-overlay');
+    
+    if (resumeContent && resumeOverlay) {
+        resumeContent.classList.remove('active');
+        resumeOverlay.classList.remove('active');
         document.body.style.overflow = '';
     }
 }

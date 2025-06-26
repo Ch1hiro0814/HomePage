@@ -21,6 +21,13 @@
             <ul class="nav-menu">
                 <li><a href="index-zh.html">首页</a></li>
                 <li><a href="projects-zh.html">项目</a></li>
+                <li class="resume-dropdown">
+                    <span class="resume-btn" onclick="toggleResumeMenu()">简历</span>
+                    <div class="resume-dropdown-content">
+                        <a href="resume-en.html" class="resume-option">📄 Resume</a>
+                        <a href="resume-zh.html" class="resume-option">📄 简历</a>
+                    </div>
+                </li>
                 <li><a href="contact-zh.html">联系方式</a></li>
                 <li class="language-switcher">
                     <div class="lang-toggle" onclick="switchLanguage('thank-you.html')">
@@ -33,6 +40,8 @@
                 </li>
             </ul>
         </div>
+        <div class="nav-overlay" onclick="toggleMobileMenu()"></div>
+        <div class="resume-overlay" onclick="closeResumeMenu()"></div>
     </nav>
 
     <!-- Thank You Content -->

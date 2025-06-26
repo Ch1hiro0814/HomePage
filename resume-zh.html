@@ -1,17 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You - Zekai Wen</title>
+    <title>简历 - 文泽凯</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .resume-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            margin-top: -70px;
+            margin-bottom: 0;
+            height: 1190px;
+        }
+        .resume-embed {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                margin-top: -70px;
+                padding: 0;
+                height: 1190px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="index.html">Zekai Wen</a>
+                <a href="index-zh.html">文泽凯</a>
             </div>
             <div class="nav-toggle" onclick="toggleMobileMenu()">
                 <span class="bar"></span>
@@ -19,18 +45,18 @@
                 <span class="bar"></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
+                <li><a href="index-zh.html">首页</a></li>
+                <li><a href="projects-zh.html">项目</a></li>
                 <li class="resume-dropdown">
-                    <span class="resume-btn" onclick="toggleResumeMenu()">Resume</span>
+                    <span class="resume-btn" onclick="toggleResumeMenu()">简历</span>
                     <div class="resume-dropdown-content">
                         <a href="resume-en.html" class="resume-option">📄 Resume</a>
                         <a href="resume-zh.html" class="resume-option">📄 简历</a>
                     </div>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact-zh.html">联系</a></li>
                 <li class="language-switcher">
-                    <div class="lang-toggle" onclick="switchLanguage('thank-you-zh.html')">
+                    <div class="lang-toggle zh" onclick="switchLanguage('resume-en.html')">
                         <div class="lang-slider"></div>
                         <div class="lang-labels">
                             <span class="lang-label en">EN</span>
@@ -44,25 +70,15 @@
         <div class="resume-overlay" onclick="closeResumeMenu()"></div>
     </nav>
 
-    <!-- Thank You Content -->
-    <section class="page-header">
-        <div class="container">
-            <h1 class="page-title technical-projects-title">Thank You!</h1>
-            <p class="page-subtitle">Your message has been successfully sent</p>
-        </div>
-    </section>
-
+    <!-- Resume Content -->
     <section class="section">
         <div class="container">
-            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <div class="response-card" style="display: inline-block; text-align: center;">
-                    <div class="response-icon">✅</div>
-                    <h3>Message Delivered!</h3>
-                    <p>Thank you for reaching out! I've received your message and will get back to you within 24-48 hours.</p>
-                    <br>
-                    <a href="contact.html" class="btn-primary" style="display: inline-block; margin: 10px;">Send Another Message</a>
-                    <a href="index.html" class="btn-secondary" style="display: inline-block; margin: 10px;">Back to Home</a>
-                </div>
+            <div class="resume-container">
+
+
+                <iframe src="文泽凯简历_中文.pdf" class="resume-embed" type="application/pdf">
+                    <p>您的浏览器不支持PDF预览。请<a href="文泽凯简历_中文.pdf" class="download-btn">下载PDF文件</a>查看。</p>
+                </iframe>
             </div>
         </div>
     </section>
@@ -70,10 +86,10 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Zekai Wen (文泽凯). All rights reserved.</p>
+            <p>&copy; 2025 文泽凯 (Zekai Wen). 版权所有。</p>
             <div class="footer-links">
-                <a href="projects.html">Projects</a>
-                <a href="contact.html">Contact</a>
+                <a href="projects-zh.html">项目</a>
+                <a href="contact-zh.html">联系</a>
             </div>
         </div>
     </footer>

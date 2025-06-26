@@ -21,6 +21,13 @@
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projects.html" class="active">Projects</a></li>
+                <li class="resume-dropdown">
+                    <span class="resume-btn" onclick="toggleResumeMenu()">Resume</span>
+                    <div class="resume-dropdown-content">
+                        <a href="resume-en.html" class="resume-option">📄 Resume</a>
+                        <a href="resume-zh.html" class="resume-option">📄 简历</a>
+                    </div>
+                </li>
                 <li><a href="contact.html">Contact</a></li>
                 <li class="language-switcher">
                     <div class="lang-toggle" onclick="switchLanguage('projects-zh.html')">
@@ -34,6 +41,7 @@
             </ul>
         </div>
         <div class="nav-overlay" onclick="toggleMobileMenu()"></div>
+        <div class="resume-overlay" onclick="closeResumeMenu()"></div>
     </nav>
 
     <!-- Page Header -->
