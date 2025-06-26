@@ -182,7 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = this.querySelector('input[name="email"]').value;
             const subject = this.querySelector('select[name="subject"]').value;
             const message = this.querySelector('textarea[name="message"]').value;
-            const newsletter = this.querySelector('input[name="newsletter"]').checked;
             
             // Validate required fields
             if (!name || !email || !subject || !message) {
@@ -220,7 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 'email': email,
                 'subject': subject,
                 'message': message,
-                'newsletter': newsletter ? 'Yes' : 'No',
                 '_subject': this.querySelector('input[name="_subject"]').value,
                 '_captcha': 'false',
                 '_template': 'table',
