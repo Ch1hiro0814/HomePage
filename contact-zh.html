@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联系方式 - 张文泽 (Sylvester Zhang)</title>
+    <title>联系方式 - 文泽凯 (Zekai Wen)</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="index-zh.html">Sylvester</a>
+                <a href="index-zh.html">文泽凯</a>
             </div>
             <ul class="nav-menu">
                 <li><a href="index-zh.html">首页</a></li>
-                <li><a href="about-zh.html">关于我</a></li>
-                <li><a href="research-zh.html">研究</a></li>
+
                 <li><a href="projects-zh.html">项目</a></li>
-                <li><a href="experience-zh.html">经历</a></li>
                 <li><a href="contact-zh.html" class="active">联系</a></li>
                 <li class="language-switcher">
                     <div class="lang-toggle zh" onclick="switchLanguage('contact.html')">
@@ -36,8 +35,8 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1 class="page-title">联系方式</h1>
-            <p class="page-subtitle">学术交流与合作联系</p>
+            <h1 class="page-title technical-projects-title">联系方式</h1>
+            <p class="page-subtitle">技术交流与项目合作联系</p>
         </div>
     </section>
 
@@ -46,67 +45,103 @@
         <div class="container">
             <div class="section-header">
                 <h2>联系信息</h2>
-                <p class="section-subtitle">欢迎学术交流与合作</p>
+                <p class="section-subtitle">欢迎AI项目合作与技术交流</p>
             </div>
-            <div class="contact-methods">
-                <div class="contact-method">
-                    <div class="method-icon">📧</div>
-                    <div class="method-content">
-                        <h3>电子邮件</h3>
-                        <p>swzhang@umn.edu</p>
-                        <div class="method-note">学术交流首选方式</div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-intro">
+                        <h2>Get in Touch</h2>
+                        <p>我一直对AI和机器学习项目、软件开发机会或协作技术倡议的讨论感兴趣。无论您是想探索AI应用、讨论计算机视觉项目，还是与同行工程师和研究员联系，我都很乐意听到您的声音。</p>
+                        
+                        <p>欢迎通过以下任何渠道联系我。我目前在哥伦比亚大学攻读硕士学位，积极从事AI研究和开发项目。</p>
                     </div>
-                </div>
-                <div class="contact-method">
-                    <div class="method-icon">🏢</div>
-                    <div class="method-content">
-                        <h3>办公地址</h3>
-                        <p>Vincent Hall 426<br>明尼苏达大学数学系<br>明尼阿波利斯, MN 55455</p>
-                    </div>
-                </div>
-                <div class="contact-method">
-                    <div class="method-icon">🌐</div>
-                    <div class="method-content">
-                        <h3>学术主页</h3>
-                        <p>sylvesterzhang.com</p>
-                        <div class="method-note">最新研究动态</div>
-                    </div>
-                </div>
-                <div class="contact-method">
-                    <div class="method-icon">📚</div>
-                    <div class="method-content">
-                        <h3>学术档案</h3>
-                        <p>Google Scholar 档案</p>
-                        <div class="method-note">论文与引用信息</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- FAQ Section -->
-    <section class="section section-gray">
-        <div class="container">
-            <div class="section-header">
-                <h2>常见问题</h2>
-                <p class="section-subtitle">关于研究合作的常见询问</p>
-            </div>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>研究合作</h3>
-                    <p>欢迎代数组合学相关领域的研究合作，特别是集群代数、舒伯特计算和对称函数方面。</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">📧</div>
+                            <div class="method-content">
+                                <h3>电子邮件</h3>
+                                <p>chihirowzk@gmail.com</p>
+                                <div class="method-note">项目咨询首选方式</div>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">🏢</div>
+                            <div class="method-content">
+                                <h3>电话</h3>
+                                <p>+1 (917) 470-2582</p>
+                                <p>+86 188-3871-7138</p>
+                                <div class="method-note">紧急技术讨论</div>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">🌐</div>
+                            <div class="method-content">
+                                <h3>LinkedIn</h3>
+                                <p>linkedin.com/in/zekaiwen</p>
+                                <div class="method-note">职业网络与动态</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <h3>学术指导</h3>
-                    <p>目前参与PACE指导项目，为本科生提供代数组合学研究指导。</p>
-                </div>
-                <div class="faq-item">
-                    <h3>会议报告</h3>
-                    <p>欢迎邀请进行学术报告，分享最新研究成果和数学见解。</p>
-                </div>
-                <div class="faq-item">
-                    <h3>联系时间</h3>
-                    <p>通常在1-2个工作日内回复邮件，欢迎学术相关的任何询问。</p>
+
+                <div class="contact-form-section">
+                    <div class="contact-form">
+                        <h3>发送消息</h3>
+                        <form id="contactForm">
+                            <!-- Using mailto approach for reliable email sending -->
+                            
+                            <div class="form-group">
+                                <label for="name">姓名</label>
+                                <input type="text" id="name" name="name" placeholder="请输入您的全名" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">电子邮箱</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">主题</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">选择主题</option>
+                                    <option value="collaboration">AI项目合作</option>
+                                    <option value="academic">学术讨论</option>
+                                    <option value="mentoring">技术指导</option>
+                                    <option value="development">软件开发</option>
+                                    <option value="research">研究咨询</option>
+                                    <option value="other">其他</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">消息</label>
+                                <textarea id="message" name="message" rows="6" placeholder="请告诉我您的项目想法、合作机会或技术问题..." required></textarea>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <span class="checkbox-custom"></span>
+                                    我希望接收AI项目和技术活动的更新信息
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary">发送消息</button>
+                            
+                            <!-- Direct Email Option -->
+                            <div style="text-align: center; margin-top: 25px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.1);">
+                                <p style="color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 15px;">
+                                    或直接发送邮件：
+                                </p>
+                                <a href="mailto:chihirowzk@gmail.com?subject=Portfolio Contact" 
+                                   class="btn-secondary" 
+                                   style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-size: 1rem;">
+                                    📧 chihirowzk@gmail.com
+                                </a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,12 +150,10 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 张文泽 (Sylvester Zhang). 版权所有。</p>
+            <p>&copy; 2025 文泽凯 (Zekai Wen). 版权所有。</p>
             <div class="footer-links">
-                <a href="about-zh.html">关于我</a>
-                <a href="research-zh.html">研究</a>
+
                 <a href="projects-zh.html">项目</a>
-                <a href="experience-zh.html">经历</a>
                 <a href="contact-zh.html">联系</a>
             </div>
         </div>

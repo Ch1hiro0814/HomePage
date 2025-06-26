@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>学术项目 - 张文泽 (Sylvester Zhang)</title>
+    <title>技术项目 - 文泽凯 (Zekai Wen)</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="projects-page">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="index-zh.html">Sylvester</a>
+                <a href="index-zh.html">文泽凯</a>
             </div>
             <ul class="nav-menu">
                 <li><a href="index-zh.html">首页</a></li>
-                <li><a href="about-zh.html">关于我</a></li>
-                <li><a href="research-zh.html">研究</a></li>
+
                 <li><a href="projects-zh.html" class="active">项目</a></li>
-                <li><a href="experience-zh.html">经历</a></li>
                 <li><a href="contact-zh.html">联系</a></li>
                 <li class="language-switcher">
                     <div class="lang-toggle zh" onclick="switchLanguage('projects.html')">
@@ -36,60 +34,115 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1 class="page-title">学术项目</h1>
-            <p class="page-subtitle">研究合作、数学研究和教育活动</p>
+            <h1 class="page-title technical-projects-title">技术项目</h1>
+            <p class="page-subtitle">人工智能应用、软件开发和创新工程解决方案</p>
         </div>
     </section>
 
     <div class="main-content">
-    <!-- Content -->
+    <!-- Projects -->
     <section class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>主要研究项目</h2>
-                <p class="section-subtitle">代数组合学的重要研究项目和合作</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>AI智能代理开发平台</h3>
+                        <p>使用Spring Boot、Spring AI、RAG和工具调用开发综合AI代理平台，支持多模态对话、记忆优化和智能工具集成，包含网页爬取、资源下载和PDF生成功能。</p>
+                        <div class="project-tags">
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">Spring AI</span>
+                            <span class="tag">RAG</span>
+                            <span class="tag">工具调用</span>
+                            <span class="tag">MCP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ch1hiro0814/Ai-Agent" class="project-link" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>校园点餐管理系统</h3>
+                        <p>全栈Web应用，使用Spring Boot、MyBatis、Redis和MySQL，具有JWT认证、WebSocket实时通信和完整的订单管理系统功能。</p>
+                        <div class="project-tags">
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">MyBatis</span>
+                            <span class="tag">Redis</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">WebSocket</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ch1hiro0814/sky-take-out" class="project-link" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>RoPE位置编码研究</h3>
+                        <p>研究旋转位置编码在视觉变换器和Performer模型中的应用，在CIFAR100数据集上实现了30%的计算复杂度降低和12.3%的精度提升。</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">视觉变换器</span>
+                            <span class="tag">Performer</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>车辆异常检测系统</h3>
+                        <p>使用YOLOv5和DeepSORT算法的计算机视觉系统，在车辆识别和跟踪方面达到95%的准确率，具备实时处理能力。</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">YOLOv5</span>
+                            <span class="tag">DeepSORT</span>
+                            <span class="tag">OpenCV</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">GitHub</a>
+                            <a href="#" class="project-link">演示视频</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>智能多功能自探测小车</h3>
+                        <p>项目简介：基于C和Python语言开发的多功能小车，具备包装识别、避障、物体投掷、图像识别和无线通信等功能。</p>
+                        <div class="project-tags">
+                            <span class="tag">C</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">STM32</span>
+                            <span class="tag">OpenMV</span>
+                            <span class="tag">蓝牙模块</span>
+                            <span class="tag">超声波传感器</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://www.bilibili.com/video/BV1Wg4y1F7y2/?spm_id_from=333.1387.upload.video_card.click&vd_source=000a7e6c10f810971d7b49c3556bb9f0" class="project-link" target="_blank">演示视频1</a>
+                            <a href="https://www.bilibili.com/video/BV1jh4y1d7Me?spm_id_from=333.788.recommend_more_video.-1&vd_source=000a7e6c10f810971d7b49c3556bb9f0" class="project-link" target="_blank">演示视频2</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card more-projects">
+                    <div class="project-content">
+                        <h3>还有更多...</h3>
+                        <p>在我的GitHub档案中探索更多项目和开发成果。发现更多创新解决方案、研究实现和创意工程项目。</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Ch1hiro0814" class="project-link" target="_blank">查看所有项目</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Course Video Section -->
-            <div class="video-section">
-                <div class="video-header">
-                    <h3>课程演示视频</h3>
-                    <p>观看我们数学研究和教学方法的全面概述</p>
-                </div>
-                <div id="embedded-video-container" class="embedded-video-container">
-                    <!-- Video will be inserted here by JavaScript -->
-                </div>
-            </div>
-            <div class="category-grid">
-                <div class="category-card">
-                    <div class="category-icon">🔗</div>
-                    <h3>集群代数与全正性</h3>
-                    <p>深入研究集群代数，探索其与全正性、舒伯特计算和表示论的联系。</p>
-                    <div class="category-count">多篇论文</div>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">🎓</div>
-                    <h3>教育与指导</h3>
-                    <p>PACE指导项目、REU助教、应用线性代数课程讲师。</p>
-                    <div class="category-count">国际合作</div>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">💻</div>
-                    <h3>计算数学</h3>
-                    <p>数学软件开发、算法设计和可视化工具。</p>
-                    <div class="category-count">多个工具</div>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">🤝</div>
-                    <h3>研究合作</h3>
-                    <p>与Nick Ovenhouse、Gregg Musiker等知名研究者的合作项目。</p>
-                    <div class="category-count">8+合作者</div>
-                </div>
-            </div>
-            <div class="section-header" style="margin-top: 80px;">
-                <p>详细项目信息请参见英文版本页面</p>
-                <a href="projects.html" class="btn-primary">查看完整项目列表</a>
-            </div>
+
+
         </div>
     </section>
 
@@ -98,12 +151,10 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 张文泽 (Sylvester Zhang). 版权所有。</p>
+            <p>&copy; 2025 文泽凯 (Zekai Wen). 版权所有。</p>
             <div class="footer-links">
-                <a href="about-zh.html">关于我</a>
-                <a href="research-zh.html">研究</a>
+
                 <a href="projects-zh.html">项目</a>
-                <a href="experience-zh.html">经历</a>
                 <a href="contact-zh.html">联系</a>
             </div>
         </div>
