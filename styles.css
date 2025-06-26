@@ -58,7 +58,7 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 40px;
+    gap: 20px;
     align-items: center;
 }
 
@@ -69,6 +69,7 @@ body {
     font-weight: 400;
     transition: all 0.3s ease;
     position: relative;
+    padding: 15px 20px;
 }
 
 .nav-menu a:hover {
@@ -94,6 +95,7 @@ body {
 .resume-dropdown {
     position: relative;
     display: inline-block;
+    pointer-events: auto;
 }
 
 .resume-btn {
@@ -103,10 +105,12 @@ body {
     font-weight: 400;
     transition: all 0.3s ease;
     position: relative;
-    cursor: pointer;
+    cursor: default;
     display: flex;
     align-items: center;
     gap: 5px;
+    pointer-events: none;
+    padding: 15px 20px;
 }
 
 .resume-btn:hover {
@@ -128,6 +132,21 @@ body {
     transform-origin: center;
 }
 
+.resume-btn::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 20px;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.resume-dropdown:hover .resume-btn::before {
+    width: calc(100% - 40px);
+}
+
 .resume-dropdown:hover .resume-btn::after {
     transform: rotate(90deg);
 }
@@ -139,13 +158,13 @@ body {
     transform: translateX(-50%);
     background: rgba(20, 20, 20, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 10px 0;
+    border-radius: 6px;
+    padding: 0;
     min-width: 125px;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    margin-top: 18px;
+    margin-top: 8px;
     backdrop-filter: blur(20px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
@@ -157,12 +176,14 @@ body {
 
 .resume-option {
     display: block;
-    padding: 10px 20px;
+    padding: 8px 20px;
     color: #e9e9e9;
     text-decoration: none;
     transition: all 0.3s ease;
-    font-size: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 15px;
+    line-height: 1.4;
+    border-bottom: none;
+    text-align: center;
 }
 
 .resume-option:last-child {
@@ -170,7 +191,7 @@ body {
 }
 
 .resume-option:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.1);
     color: #ffffff;
 }
 
@@ -2510,23 +2531,49 @@ input[type="checkbox"] {
     .resume-btn {
         width: 100%;
         text-align: center;
-        padding: 15px 0;
+        padding: 10px 12px;
         display: block;
-        cursor: pointer;
+        cursor: default;
+        font-size: 15px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .resume-btn:hover,
+    .resume-dropdown:hover .resume-btn {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .resume-btn::before {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: #ffffff;
+        transition: width 0.3s ease;
+    }
+
+    .resume-btn:hover::before,
+    .resume-dropdown:hover .resume-btn::before {
+        width: 80%;
     }
 
     .resume-dropdown-content {
         position: fixed;
         top: 0;
-        left: -107px;
+        left: -109px;
         width: 125px;
-        height: 100px;
-        background: #1a1a1a;
+        height: 85px;
+        background: rgba(20, 20, 20, 0.9);
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
         opacity: 0;
         visibility: hidden;
         transform: translateX(-20px);
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+        transition: all 0.3s ease;
         z-index: 2000;
         border-right: 1px solid rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(20px);
@@ -2540,26 +2587,25 @@ input[type="checkbox"] {
         opacity: 1;
         visibility: visible;
         transform: translateX(0);
-        transition: none;
     }
 
     .resume-option {
         display: block;
-        padding: 20px 30px;
+        padding: 12px 20px;
         color: #e9e9e9;
         text-decoration: none;
         transition: all 0.3s ease;
         border: none;
         background: none;
-        text-align: left;
-        font-size: 16px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        font-size: 15px;
+        line-height: 1.4;
+        border-bottom: none;
     }
 
     .resume-option:hover {
-        background: rgba(0, 212, 255, 0.1);
-        color: #00d4ff;
-        transform: translateX(10px);
+        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
     }
 
     .resume-overlay {

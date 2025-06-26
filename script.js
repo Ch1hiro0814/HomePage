@@ -280,45 +280,7 @@ function toggleMobileMenu() {
     }
 }
 
-// Mobile resume menu toggle
-function toggleResumeMenu() {
-    const resumeContent = document.querySelector('.resume-dropdown-content');
-    const resumeOverlay = document.querySelector('.resume-overlay');
-    
-    if (resumeContent && resumeOverlay) {
-        resumeContent.classList.toggle('active');
-        resumeOverlay.classList.toggle('active');
-        
-        // Prevent body scroll when resume menu is open
-        document.body.style.overflow = resumeContent.classList.contains('active') ? 'hidden' : '';
-    }
-}
 
-// Close resume menu when clicking overlay
-function closeResumeMenu() {
-    const resumeContent = document.querySelector('.resume-dropdown-content');
-    const resumeOverlay = document.querySelector('.resume-overlay');
-    
-    if (resumeContent && resumeOverlay) {
-        // 立即隐藏菜单，不等待动画
-        resumeContent.style.opacity = '0';
-        resumeContent.style.visibility = 'hidden';
-        resumeOverlay.style.opacity = '0';
-        resumeOverlay.style.visibility = 'hidden';
-        
-        // 短暂延迟后移除active类，确保菜单完全重置
-        setTimeout(() => {
-            resumeContent.classList.remove('active');
-            resumeOverlay.classList.remove('active');
-            resumeContent.style.opacity = '';
-            resumeContent.style.visibility = '';
-            resumeOverlay.style.opacity = '';
-            resumeOverlay.style.visibility = '';
-        }, 50);
-        
-        document.body.style.overflow = '';
-    }
-}
 
 // Additional mobile menu functionality
 document.addEventListener('DOMContentLoaded', () => {
@@ -337,13 +299,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 document.body.style.overflow = '';
             }
-        });
-    });
-    
-    // Close resume menu when clicking on resume options
-    document.querySelectorAll('.resume-option').forEach(option => {
-        option.addEventListener('click', () => {
-            closeResumeMenu();
         });
     });
     
