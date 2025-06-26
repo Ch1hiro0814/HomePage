@@ -300,8 +300,22 @@ function closeResumeMenu() {
     const resumeOverlay = document.querySelector('.resume-overlay');
     
     if (resumeContent && resumeOverlay) {
-        resumeContent.classList.remove('active');
-        resumeOverlay.classList.remove('active');
+        // 立即隐藏菜单，不等待动画
+        resumeContent.style.opacity = '0';
+        resumeContent.style.visibility = 'hidden';
+        resumeOverlay.style.opacity = '0';
+        resumeOverlay.style.visibility = 'hidden';
+        
+        // 短暂延迟后移除active类，确保菜单完全重置
+        setTimeout(() => {
+            resumeContent.classList.remove('active');
+            resumeOverlay.classList.remove('active');
+            resumeContent.style.opacity = '';
+            resumeContent.style.visibility = '';
+            resumeOverlay.style.opacity = '';
+            resumeOverlay.style.visibility = '';
+        }, 50);
+        
         document.body.style.overflow = '';
     }
 }
@@ -323,6 +337,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 document.body.style.overflow = '';
             }
+        });
+    });
+    
+    // Close resume menu when clicking on resume options
+    document.querySelectorAll('.resume-option').forEach(option => {
+        option.addEventListener('click', () => {
+            closeResumeMenu();
         });
     });
     

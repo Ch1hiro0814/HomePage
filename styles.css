@@ -2526,7 +2526,7 @@ input[type="checkbox"] {
         opacity: 0;
         visibility: hidden;
         transform: translateX(-20px);
-        transition: all 0.3s ease;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
         z-index: 2000;
         border-right: 1px solid rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(20px);
@@ -2540,6 +2540,7 @@ input[type="checkbox"] {
         opacity: 1;
         visibility: visible;
         transform: translateX(0);
+        transition: none;
     }
 
     .resume-option {
