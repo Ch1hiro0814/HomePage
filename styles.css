@@ -2446,8 +2446,8 @@ input[type="checkbox"] {
     }
 
     .nav-logo img {
-        height: 80px;
-        width: 80px;
+        height: 100px;
+        width: 100px;
     }
 
     .nav-toggle {
@@ -3148,8 +3148,8 @@ body {
 /* Small phones */
 @media (max-width: 480px) {
     .nav-logo img {
-        height: 80px !important;
-        width: 80px !important;
+        height: 100px !important;
+        width: 100px !important;
     }
 
     .hero-title {
