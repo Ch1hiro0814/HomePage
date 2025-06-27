@@ -2572,7 +2572,7 @@ input[type="checkbox"] {
 
     .resume-btn:hover::before,
     .resume-dropdown:hover .resume-btn::before {
-        width: 80%;
+        width: 100%;
     }
 
     .resume-dropdown-content {
