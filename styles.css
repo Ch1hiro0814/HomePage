@@ -142,16 +142,16 @@ body {
 .resume-btn::before {
     content: '';
     position: absolute;
-    bottom: -5px;
-    left: 20px;
-    width: 0;
+    bottom: -2.9px;
+    left: 0px;
+    width: 0px;
     height: 2px;
     background: #ffffff;
     transition: width 0.3s ease;
 }
 
 .resume-dropdown:hover .resume-btn::before {
-    width: calc(100% - 40px);
+    width: calc(100%);
 }
 
 .resume-dropdown:hover .resume-btn::after {
