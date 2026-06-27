@@ -3,49 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="文泽凯的技术项目：AI Agent开发、Vision Transformer研究、车辆异常检测系统等。">
+    <meta property="og:title" content="文泽凯 (Zekai Wen) - 技术项目">
+    <meta property="og:description" content="文泽凯的技术项目：AI Agent开发、Vision Transformer研究、车辆异常检测系统等。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/Chihiro_favicon.png">
+    <meta name="twitter:card" content="summary">
     <title>技术项目 - 文泽凯 (Zekai Wen)</title>
     <link rel="icon" type="image/png" href="images/Chihiro_favicon.png">
     <link rel="stylesheet" href="styles.css?v=2025010801">
 </head>
 <body class="projects-page">
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index-zh.html">
-                    <img src="images/Chihiro.png" alt="Chihiro">
-                </a>
-            </div>
-            <div class="nav-toggle" onclick="toggleMobileMenu()">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index-zh.html">首页</a></li>
-                <li><a href="projects-zh.html" class="active">项目</a></li>
-                <li class="resume-dropdown">
-                    <span class="resume-btn">简历</span>
-                    <div class="resume-dropdown-content">
-                        <a href="resume-en.html" class="resume-option">Resume</a>
-                        <a href="resume-zh.html" class="resume-option">简历</a>
-                    </div>
-                </li>
-                <li><a href="contact-zh.html">联系</a></li>
-                <li class="language-switcher">
-                    <div class="lang-toggle zh" onclick="switchLanguage('projects.html')">
-                        <div class="lang-slider"></div>
-                        <div class="lang-labels">
-                            <span class="lang-label en">EN</span>
-                            <span class="lang-label zh">中</span>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-overlay" onclick="toggleMobileMenu()"></div>
-        <div class="resume-overlay" onclick="closeResumeMenu()"></div>
-    </nav>
+    <nav class="navbar" id="navbar"></nav>
 
     <!-- Page Header -->
     <section class="page-header">
@@ -60,7 +31,7 @@
     <section class="section">
         <div class="container">
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card gradient-border">
                     <div class="project-content">
                         <h3>AI Agent开发</h3>
                         <p>使用Spring Boot、Spring AI、RAG、Tool Calling、MCP等技术开发的综合AI智能体，支持多轮对话、记忆持久化、RAG知识库检索
@@ -79,7 +50,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card gradient-border">
                     <div class="project-content">
                         <h3>校园点餐管理系统</h3>
                         <p>基于SpringBoot+Mybatis+Redis+MySQL的校园点餐平台，项目分为客户端和商家端，商家端主要实现了对员工
@@ -98,7 +69,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card gradient-border">
                     <div class="project-content">
                         <h3>基于Vision Transformer(ViT)和Performer的旋转位置编码研究</h3>
                         <p>研究旋转位置编码在ViT和Performer模型中的应用，在CIFAR100数据集上实现了30%的计算复杂度降低和12.3%的精度提升。</p>
@@ -114,7 +85,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card gradient-border">
                     <div class="project-content">
                         <h3>车辆异常检测系统</h3>
                         <p>使用YOLOv5和DeepSORT算法的计算机视觉系统，在车辆识别和跟踪方面达到95%的准确率，具备实时处理能力。</p>
@@ -132,7 +103,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card gradient-border">
                     <div class="project-content">
                         <h3>智能多功能自探测小车</h3>
                         <p>项目简介：基于C和Python语言开发的多功能小车，具备包装识别、避障、物体投掷、图像识别和无线通信等功能。</p>
@@ -151,7 +122,7 @@
                     </div>
                 </div>
 
-                <div class="project-card more-projects">
+                <div class="project-card gradient-border more-projects">
                     <div class="project-content">
                         <h3>还有更多...</h3>
                         <p>在我的GitHub档案中探索更多项目和开发成果。发现更多创新解决方案、研究实现和创意工程项目。</p>

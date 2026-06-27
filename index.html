@@ -3,49 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Zekai Wen — Master student in Electrical Engineering at Columbia University, specializing in AI, Machine Learning, and software engineering.">
+    <meta property="og:title" content="Zekai Wen - Personal Website">
+    <meta property="og:description" content="Zekai Wen — Master student in Electrical Engineering at Columbia University, specializing in AI, Machine Learning, and software engineering.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/Chihiro_favicon.png">
+    <meta name="twitter:card" content="summary">
     <title>Zekai Wen - Home</title>
     <link rel="icon" type="image/png" href="images/Chihiro_favicon.png">
     <link rel="stylesheet" href="styles.css?v=2025010801">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html">
-                    <img src="images/Chihiro.png" alt="Chihiro">
-                </a>
-            </div>
-            <div class="nav-toggle" onclick="toggleMobileMenu()">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li class="resume-dropdown">
-                    <span class="resume-btn">Resume</span>
-                    <div class="resume-dropdown-content">
-                        <a href="resume-en.html" class="resume-option">Resume</a>
-                        <a href="resume-zh.html" class="resume-option">简历</a>
-                    </div>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
-                <li class="language-switcher">
-                    <div class="lang-toggle" onclick="switchLanguage('index-zh.html')">
-                        <div class="lang-slider"></div>
-                        <div class="lang-labels">
-                            <span class="lang-label en">EN</span>
-                            <span class="lang-label zh">中</span>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-overlay" onclick="toggleMobileMenu()"></div>
-        <div class="resume-overlay" onclick="closeResumeMenu()"></div>
-    </nav>
+    <nav class="navbar" id="navbar"></nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -73,7 +44,7 @@
                 </div>
             </div>
             <div class="hero-right">
-                <p class="hero-description">
+                <p class="hero-description gradient-border">
                     Hello, I’m Zekai Wen, a Master's student in Electrical Engineering at Columbia University, specializing in AI and Machine Learning.<br>
 
 I’m skilled in Python and PyTorch, with experience in AI Agent development, RoPE positional encoding, Transformer optimization, and vehicle anomaly detection.<br>
@@ -93,7 +64,7 @@ I look forward to connecting and exploring exciting ideas in AI and technology t
                 <h2>Skills & Awards</h2>
             </div>
             <div class="category-grid-two">
-                <div class="category-card-large">
+                <div class="category-card-large gradient-border">
                     <h3>Programming Languages</h3>
                     <div class="programming-icons">
                         <div class="programming-icon">
@@ -118,7 +89,7 @@ I look forward to connecting and exploring exciting ideas in AI and technology t
                         </div>
                     </div>
                 </div>
-                <div class="category-card-large">
+                <div class="category-card-large gradient-border">
                     <h3>Awards</h3>
                     <div class="awards-list">
                         <div class="award-item">

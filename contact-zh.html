@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="与文泽凯取得联系，探讨AI/机器学习合作、软件开发或技术交流。">
+    <meta property="og:title" content="联系文泽凯 (Zekai Wen)">
+    <meta property="og:description" content="与文泽凯取得联系，探讨AI/机器学习合作、软件开发或技术交流。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/Chihiro_favicon.png">
+    <meta name="twitter:card" content="summary">
     <title>联系方式 - 文泽凯 (Zekai Wen)</title>
     <link rel="icon" type="image/png" href="images/Chihiro_favicon.png">
     <link rel="stylesheet" href="styles.css?v=2025010801">
@@ -10,43 +17,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index-zh.html">
-                    <img src="images/Chihiro.png" alt="Chihiro">
-                </a>
-            </div>
-            <div class="nav-toggle" onclick="toggleMobileMenu()">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index-zh.html">首页</a></li>
-                <li><a href="projects-zh.html">项目</a></li>
-                <li class="resume-dropdown">
-                    <span class="resume-btn">简历</span>
-                    <div class="resume-dropdown-content">
-                                                 <a href="resume-en.html" class="resume-option">Resume</a>
-                         <a href="resume-zh.html" class="resume-option">简历</a>
-                    </div>
-                </li>
-                <li><a href="contact-zh.html" class="active">联系</a></li>
-                <li class="language-switcher">
-                    <div class="lang-toggle zh" onclick="switchLanguage('contact.html')">
-                        <div class="lang-slider"></div>
-                        <div class="lang-labels">
-                            <span class="lang-label en">EN</span>
-                            <span class="lang-label zh">中</span>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-overlay" onclick="toggleMobileMenu()"></div>
-        <div class="resume-overlay" onclick="closeResumeMenu()"></div>
-    </nav>
+    <nav class="navbar" id="navbar"></nav>
 
     <!-- Page Header -->
     <section class="page-header">

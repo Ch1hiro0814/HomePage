@@ -3,49 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="文泽凯（Zekai Wen）— 哥伦比亚大学电子工程硕士，专注于人工智能、机器学习与软件工程。">
+    <meta property="og:title" content="文泽凯 (Zekai Wen) - 个人主页">
+    <meta property="og:description" content="文泽凯（Zekai Wen）— 哥伦比亚大学电子工程硕士，专注于人工智能、机器学习与软件工程。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/Chihiro_favicon.png">
+    <meta name="twitter:card" content="summary">
     <title>文泽凯 (Zekai Wen) - 首页</title>
     <link rel="icon" type="image/png" href="images/Chihiro_favicon.png">
     <link rel="stylesheet" href="styles.css?v=2025010801">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index-zh.html">
-                    <img src="images/Chihiro.png" alt="Chihiro">
-                </a>
-            </div>
-            <div class="nav-toggle" onclick="toggleMobileMenu()">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index-zh.html" class="active">首页</a></li>
-                <li><a href="projects-zh.html">项目</a></li>
-                <li class="resume-dropdown">
-                    <span class="resume-btn">简历</span>
-                    <div class="resume-dropdown-content">
-                        <a href="resume-en.html" class="resume-option">Resume</a>
-                        <a href="resume-zh.html" class="resume-option">简历</a>
-                    </div>
-                </li>
-                <li><a href="contact-zh.html">联系</a></li>
-                <li class="language-switcher">
-                    <div class="lang-toggle zh" onclick="switchLanguage('index.html')">
-                        <div class="lang-slider"></div>
-                        <div class="lang-labels">
-                            <span class="lang-label en">EN</span>
-                            <span class="lang-label zh">中</span>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-overlay" onclick="toggleMobileMenu()"></div>
-        <div class="resume-overlay" onclick="closeResumeMenu()"></div>
-    </nav>
+    <nav class="navbar" id="navbar"></nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -73,7 +44,7 @@
                 </div>
             </div>
             <div class="hero-right">
-                <p class="hero-description">
+                <p class="hero-description gradient-border">
                     你好，我是文泽凯（Zekai Wen），本科毕业于电子科技大学与格拉斯哥大学的联合培养项目，目前在哥伦比亚大学攻读电子工程硕士学位，研究方向聚焦于人工智能与机器学习。<br>
                     我熟练掌握 Python 及其主流深度学习框架 PyTorch，具备扎实的AI工程能力，并在多个项目中积累了丰富的实践经验，包括 AI Agent 智能体开发、RoPE 位置编码机制研究、Transformer 注意力机制推理复杂度优化，以及车辆异常行为检测系统设计等。<br>
                     此外，我也对软件开发充满热情，熟悉 Java 语言及 Spring Boot 框架的应用，掌握 MySQL、Redis 等主流数据库的使用，并了解多种常用中间件的使用。<br>
@@ -90,7 +61,7 @@
                 <h2>技能与奖项</h2>
             </div>
             <div class="category-grid-two">
-                <div class="category-card-large">
+                <div class="category-card-large gradient-border">
                     <h3>编程语言</h3>
                     <div class="programming-icons">
                         <div class="programming-icon">
@@ -115,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="category-card-large">
+                <div class="category-card-large gradient-border">
                     <h3>奖项荣誉</h3>
                     <div class="awards-list">
                         <div class="award-item">
